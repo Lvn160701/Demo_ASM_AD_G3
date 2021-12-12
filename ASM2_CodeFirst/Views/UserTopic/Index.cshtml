@@ -14,20 +14,37 @@
         <th>
             @Html.DisplayNameFor(model => model.Topic.Name)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic.BeginDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic.FinishDate)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Topic.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Topic.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Topic.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Topic.BeginDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Topic.FinishDate)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
 }
 
 </table>

@@ -3,9 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - MS System</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="~/Content/style.css">
 
 </head>
 <body>
@@ -17,13 +25,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("MS System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @if (ViewContext.HttpContext.User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Home", "Login", "Account")</li>
+                        //<li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("ListRole", "Index", "Role")</li>
                         <li>@Html.ActionLink("ListUser", "ListUser", "Home")</li>
                         <li>@Html.ActionLink("ListCourse", "Index", "Course")</li>
@@ -32,12 +40,15 @@
                     }
                     @if (ViewContext.HttpContext.User.IsInRole("Training Staff"))
                     {
-                        <li>@Html.ActionLink("Home", "Login", "Account")</li>
+                        //<li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("ListUser", "ListUser", "Home")</li>
                         <li>@Html.ActionLink("ListCourse", "Index", "Course")</li>
                         <li>@Html.ActionLink("CourseCategory", "Index", "CourseCategory")</li>
                         <li>@Html.ActionLink("ListTopic", "Index", "Topic")</li>
                         <li>@Html.ActionLink("UserCourse", "Index", "UserCourse")</li>
+                        <li>@Html.ActionLink("UserClass", "Index", "UserClass")</li>
+                        <li>@Html.ActionLink("Class", "Index", "Class")</li>
+                        <li>@Html.ActionLink("UserTopic", "Index", "UserTopic")</li>
                     }
                     @if (ViewContext.HttpContext.User.IsInRole("Trainer"))
                     {
@@ -57,13 +68,80 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Student Management System</p>
-        </footer>
-    </div>
 
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <!-- footer -->
+    <div style="height: 10vh;" class="content d-flex align-items-center bg-light">
+        <h2 class="w-100 text-center"></h2>
+    </div>
+
+    <footer class="footer-48201">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 pr-md-5">
+                    <a href="#" class="footer-site-logo d-block mb-4">ATN</a>
+                    <p>
+                        ATN is a Vietnamese company that is selling toys to teenagers in many provinces across Vietnam.
+                        The company has sales of over $500,000/year. Currently, each shop has its own database to store items
+                        deals exclusively for that shop. Each store must send sales data to the management monthly and
+                        It takes a lot of time for management to compile data collected from all stores.
+                        In addition, the board cannot view real-time stock information updates.
+                    </p>
+                </div>
+                <div class="col-md">
+                    <ul class="list-unstyled nav-links">
+                        <li><a href="index.htm">Home</a></li>
+                        <li><a href="https://btec.fpt.edu.vn/">About Us</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="https://www.facebook.com/hoang.nguyenhuu.7330763/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md">
+                    <ul class="list-unstyled nav-links">
+                        <li><a href="#">Clients</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Career</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Journal</a></li>
+                    </ul>
+                </div>
+                <div class="col-md">
+                    <ul class="list-unstyled nav-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="col-md text-md-center">
+                    <ul class="social list-unstyled">
+                        <li><a href="#"><span class="icon-instagram"></span></a></li>
+                        <li><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li><a href="https://www.facebook.com/hoang.nguyenhuu.7330763/"><span class="icon-facebook"></span></a></li>
+                        <li><a href="#"><span class="icon-pinterest"></span></a></li>
+                        <li><a href="#"><span class="icon-dribbble"></span></a></li>
+                    </ul>
+                    <p class=""><a href="https://btec.fpt.edu.vn/" class="btn btn-tertiary">Contact Us</a></p>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col-12 text-center">
+                    <div class="copyright mt-5 pt-5">
+                        <p><small>&copy; 2021-2022 All Rights Reserved.</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+            crossorigin="anonymous"></script>
 </body>
 </html>

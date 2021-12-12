@@ -56,7 +56,7 @@ namespace ASM2_CodeFirst.Controllers
                 UserCourse userCourse = new UserCourse();
                 userCourse.CourseID = CourseID;
                 userCourse.UserID = userId;
-                db.UserCourses.Add(userCourse);
+                db.UserCourses.Add(userCourse); ;
                 db.SaveChanges();
             }
             return RedirectToAction("Index", "UserCourse");

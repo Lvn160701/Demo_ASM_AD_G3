@@ -15,10 +15,19 @@ namespace ASM2_CodeFirst.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Topic
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            var topic = from m in db.Topics
+                         select m;
+
             var topics = db.Topics.Include(t => t.Course);
             return View(topics.ToList());
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                topic.Where(s => s.Name.Contains(searchString));
+            }
+            return View(topic);
         }
 
         // GET: Topic/Details/5

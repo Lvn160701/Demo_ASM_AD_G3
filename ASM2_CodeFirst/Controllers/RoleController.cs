@@ -80,7 +80,7 @@ namespace ASM2_CodeFirst.Controllers
             return View(new RoleViewModel(role));
         }
 
-        //Get: Role/delete còmirm
+        //Get: Role/delete cirm
         public async Task<ActionResult> DeleteComfirm(string id)
         {
             var role = await RoleManager.FindByIdAsync(id);

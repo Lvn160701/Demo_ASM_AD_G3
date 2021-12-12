@@ -15,8 +15,15 @@ namespace ASM2_CodeFirst.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: CourseCategory
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            var coursecategorys = from m in db.CourseCategories
+                        select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                coursecategorys.Where(s => s.Name.Contains(searchString));
+            }
             return View(db.CourseCategories.ToList());
         }
 
